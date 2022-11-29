@@ -56,7 +56,10 @@ def clickButton(value, equation):
 
     current_equation = str(equation.get())
 
-    if value == '=':
+    if value == 'c':
+        equation.delete(-1, END)
+
+    elif value == '=':
         answer = str(eval(current_equation))
         equation.delete(-1, END)
         equation.insert(0, answer)
