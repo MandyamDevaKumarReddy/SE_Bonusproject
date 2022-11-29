@@ -54,19 +54,26 @@ def addButton(value, equation):
 
 def clickButton(value, equation):
 
+
+    # Get the equation that's entered by the user
     current_equation = str(equation.get())
 
+    # # If user clicked "c", then clear the screen
     if value == 'c':
         equation.delete(-1, END)
 
+    # If user clicked "=", then compute the answer and display it
     elif value == '=':
         answer = str(eval(current_equation))
         equation.delete(-1, END)
         equation.insert(0, answer)
 
+    # If user clicked any other button, then add it to the equation line
     else:
         equation.delete(0, END)
         equation.insert(0, current_equation+value)
+
+
 
 if __name__ == '__main__':
 
