@@ -8,7 +8,7 @@ def initialize(master):
 
     master.title("Python Calculator")
 
-    equation = Entry(master, bg="black", foreground="white", width=27, relief='raised', xscrollcommand='true')
+    equation = Entry(master, bg="black", foreground="white", width=27,font=('Arial 50'), relief='raised', xscrollcommand='true')
 
     equation.grid(row=0, column=0, columnspan=4)
 
