@@ -55,8 +55,15 @@ def addButton(value, equation):
 def clickButton(value, equation):
 
     current_equation = str(equation.get())
-    equation.delete(0, END)
-    equation.insert(0, current_equation+value)
+
+    if value == '=':
+        answer = str(eval(current_equation))
+        equation.delete(-1, END)
+        equation.insert(0, answer)
+
+    else:
+        equation.delete(0, END)
+        equation.insert(0, current_equation+value)
 
 if __name__ == '__main__':
 
