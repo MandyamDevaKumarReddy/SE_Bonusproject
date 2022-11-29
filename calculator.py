@@ -50,7 +50,13 @@ def create_button(equation):
 
 def addButton(value, equation):
 
-    return Button(master, text=value, width=17, height=7)
+    return Button(master, text=value, width=17,  command=lambda: clickButton(str(value), equation),height=7)
+
+def clickButton(value, equation):
+
+    current_equation = str(equation.get())
+    equation.delete(0, END)
+    equation.insert(0, current_equation+value)
 
 if __name__ == '__main__':
 
