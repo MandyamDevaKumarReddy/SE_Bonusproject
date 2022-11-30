@@ -17,6 +17,8 @@ def initialize(master):
 
 def create_button(equation):
 
+    # We first create each button one by one with the value we want
+    # Using addButton() method which is described below
     b_0 = addButton(0, equation)
     b_1 = addButton(1, equation)
     b_2 = addButton(2, equation)
@@ -34,11 +36,13 @@ def create_button(equation):
     b_clear = addButton('c', equation)
     b_equal = addButton('=', equation)
 
+    # Arrange the buttons into lists which represent calculator rows
     row1 = [b_7, b_8, b_9, b_add]
     row2 = [b_4, b_5, b_6, b_sub]
     row3 = [b_1, b_2, b_3, b_mult]
     row4 = [b_clear, b_equal, b_0, b_div]
 
+    # Assign each button to a particular location on the GUI
     row_index = 1
     for row in [row1, row2, row3, row4]:
         col_index = 0
@@ -46,7 +50,6 @@ def create_button(equation):
             buttn.grid(row=row_index, column=col_index, columnspan=1)
             col_index += 1
         row_index += 1
-
 
 def addButton(value, equation):
 
