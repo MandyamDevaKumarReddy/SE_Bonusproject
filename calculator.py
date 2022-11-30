@@ -5,7 +5,9 @@ import numexpr as ne
 
 
 def initialize(master):
-
+    '''
+    DOCSTRING: Define what to do on initialization
+    '''
 
     # Add a name to our application
     master.title("Python Calculator")
@@ -16,11 +18,16 @@ def initialize(master):
     # Assign a position for the equation line in the grey application window
     equation.grid(row=0, column=0, columnspan=4)
 
-    # Execute the .createButton() method
+    # Execute the .creteButton() method
     create_button(equation)
 
 
 def create_button(equation):
+    '''
+    DOCSTRING: Method that creates the buttons
+    INPUT: nothing
+    OUTPUT: creates a button
+    '''
 
     # We first create each button one by one with the value we want
     # Using addButton() method which is described below
@@ -56,12 +63,22 @@ def create_button(equation):
             col_index += 1
         row_index += 1
 
-def addButton(value, equation):
 
-    return Button(master, text=value, width=17,  command=lambda: clickButton(str(value), equation),height=7)
+def addButton(value, equation):
+    '''
+    DOCSTRING: Method to process the creation of a button and make it clickable
+    INPUT: value of the button (1,2,3,4,5,6,7,8,9,0,+,-,*,/,c,=)
+    OUTPUT: returns a designed button object
+    '''
+    return Button(master, activebackground="red", bg="orange", text=value, width=17, height=7, command=lambda: clickButton(str(value), equation), relief=RAISED)
+
 
 def clickButton(value, equation):
-
+    '''
+    DOCSTRING: Method to program the actions that will happen in the calculator after a click of each button
+    INPUT: value of the button (1,2,3,4,5,6,7,8,9,0,+,-,*,/,c,=)
+    OUTPUT: what action will be performed when a particular button is clicked
+    '''
 
     # Get the equation that's entered by the user
     current_equation = str(equation.get())
@@ -80,7 +97,6 @@ def clickButton(value, equation):
     else:
         equation.delete(0, END)
         equation.insert(0, current_equation+value)
-
 
 
 # Execution
