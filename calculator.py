@@ -6,12 +6,17 @@ import numexpr as ne
 
 def initialize(master):
 
+
+    # Add a name to our application
     master.title("Python Calculator")
 
+    # Create a line where we display the equation
     equation = Entry(master, bg="black", foreground="white", width=27, font=('Arial 50'), relief='raised', xscrollcommand='true')
 
+    # Assign a position for the equation line in the grey application window
     equation.grid(row=0, column=0, columnspan=4)
 
+    # Execute the .createButton() method
     create_button(equation)
 
 
@@ -78,10 +83,13 @@ def clickButton(value, equation):
 
 
 
+# Execution
 if __name__ == '__main__':
 
+    # Create the main window of an application
     master = Tk()
-
+    # Tell our calculator class to use this window
     initialize(master)
 
+    # Executable loop on the application, waits for user input
     master.mainloop()
